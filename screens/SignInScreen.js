@@ -2,12 +2,26 @@ import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { Card, Text, Button, TextInput } from "react-native-paper";
 
-import { textPrimary } from "../constants/theme";
+import { textPrimary, textError } from "../constants/theme";
+import { auth } from "../api";
 
 const SignInScreen = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const [isUsernameFilled, setisUsernameFilled] = useState(false);
+
+  const signIn = async () => {
+    setError("");
+
+    try {
+      const result = await auth({ username, password });
+
+      console.log(result);
+    } catch (error) {
+      setError("Username or password combination doesn't match :(");
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -45,11 +59,13 @@ const SignInScreen = () => {
             </Button>
           )}
 
+          <Text style={styles.error}>{error}</Text>
+
           {isUsernameFilled && (
             <>
               <Button
                 mode="contained"
-                onPress={() => console.log("loginn")}
+                onPress={signIn}
                 style={styles.submitButton}
               >
                 Login
@@ -87,7 +103,10 @@ const styles = StyleSheet.create({
     paddingBottom: 8
   },
   card: {
-    // marginTop: 50
+    //
+  },
+  error: {
+    color: textError
   },
   cardContent: {
     borderRadius: 8

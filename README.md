@@ -1,5 +1,12 @@
 # GitFeed
 
+## Nice-to-have improvements:
+
+- Use OAuth instead of username:password auth.
+- Animation during login prosess
+- Shows onboarding, instead of login form directly.
+-
+
 ## Timeline and Thought Process
 
 ### Tue, Jan 21
@@ -46,7 +53,7 @@
 
 ### Wed, Jan 22
 
-03:22 -
+03:22 - 04:28
 
 - Okay let's make the SignInScreen to actually try to sign in.
 - Even tho yesterday we planned to use OAuth, I think it's more straightforward to use plain username:password authentication for the v1, and see if we can switch to OAuth later if we have time. Hope the username:password authentication doesn't get deprecated during the testing period haha.
@@ -54,4 +61,12 @@
 - We also need to start thinking about colors and theme. Let's use some color pallete from Refactoring UI.
 - Why do we need to separate the input password into different steps? :(
 - Okay no big deal. Maybe in the future we could validate the username first with the Github API first, before going to the password, like the UX of Tokopedia.
--
+- We could add animation during the login flow in the future.
+- So for now our auth flow is: user filled username and password; we authenticate to the API; if the credential is valid, save it to localStorage for future use. Well there's security issue with saving password, but that's the requirement for v1.
+- In day job I'd communicate the security problem with the PM, tell them about the alternative which is using OAuth (and need server for this), so maybe the specification could change.
+
+04:57 - 05:42
+
+- Let's do the API call and try to authenticate.
+- We'll use axios, as it's the library I'm most familiar with. We'll use REST instead of GraphQL too because I'm much more familiar with REST, and so far they do the jobs well.
+- Whelp. There's problem on lastest axios version, v0.19.1, when used in [Expo environment](https://github.com/axios/axios/issues/2235). Downgrading to v0.18.0 solves it.

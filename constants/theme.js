@@ -31,7 +31,8 @@ const colors = {
 export const primary = colors.primary.one;
 export const accent = colors.cyan.four;
 
-export const borderSeconday = "rgba(158, 150, 150, 0.2)";
+export const textPrimary = primary;
+export const textError = "#ff6961";
 
 export const theme = {
   ...DefaultTheme,
