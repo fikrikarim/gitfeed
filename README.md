@@ -32,7 +32,7 @@
 - Because for now our app need lot of abstractions, and there's no requirement that needs native code, so we will use expo yay. Anddd expo will provide a navigation structure using react-navigation, so it would be faster to bootstrap our app.
 - Talking about navigation, I prefer react-native-navigation, because it's faster and feels smoother. But for this app I think it's good enough to use react-navigation
 
-19:42 -
+19:42 - 20:26
 
 - Let's generate our app. But now we have to decide what we should name our app. Hmm so our app shows the git updates of a repo. GitUpdate maybe? No fun. GitFeed? I like it. Let's search on google to see if there's any project with that name
 - Well there's some project but no big one. GitFeed it is!
@@ -41,4 +41,5 @@
 - Well I have ton of ideas how to improve the app. But for now let's keep it simple and release v1 that fulfill all the mandatory requirement.
 - First, let's do the switch navigator that checks whether the user is authenticated or not, if not, then redirects user to Sign in page. And while the app is checking, shows loading spinner.
 - Let's use hook instead of Class. Because, why not. It's a new project after all.
--
+- Now we make LoginScreen, and MainScreen, and try to make AuthLoadingScreen randomly go to either login screen, before we implement the real logged in checking mechanism, to get sense of the AuthLoadingScreen.
+- Let's take a breakkk to meet someone.

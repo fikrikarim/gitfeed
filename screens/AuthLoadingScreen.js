@@ -4,8 +4,14 @@ import { StyleSheet, View, ActivityIndicator } from "react-native";
 const AuthLoadingScreen = props => {
   useEffect(() => {
     setTimeout(() => {
-      props.navigation.navigate("MainTabNavigator");
-    }, 2000);
+      const rand_boolean = Math.random() >= 0.5;
+
+      if (rand_boolean) {
+        props.navigation.navigate("Main");
+      } else {
+        props.navigation.navigate("SignIn");
+      }
+    }, 1000);
   });
 
   return (
