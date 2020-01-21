@@ -38,4 +38,7 @@
 - Well there's some project but no big one. GitFeed it is!
 - Initiate app using expo.
 - Move our timeline note from simplenote to readme in the expo and do first commit.
+- Well I have ton of ideas how to improve the app. But for now let's keep it simple and release v1 that fulfill all the mandatory requirement.
+- First, let's do the switch navigator that checks whether the user is authenticated or not, if not, then redirects user to Sign in page. And while the app is checking, shows loading spinner.
+- Let's use hook instead of Class. Because, why not. It's a new project after all.
 -
