@@ -7,6 +7,7 @@ import { textPrimary } from "../constants/theme";
 const SignInScreen = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isUsernameFilled, setisUsernameFilled] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -19,25 +20,40 @@ const SignInScreen = () => {
             label="Github username"
             value={username}
             onChangeText={text => setUsername(text)}
+            disabled={isUsernameFilled}
             dense
           />
 
-          <TextInput
-            style={styles.input}
-            label="Password"
-            value={password}
-            secureTextEntry
-            onChangeText={text => setPassword(text)}
-            dense
-          />
+          {isUsernameFilled && (
+            <TextInput
+              style={styles.input}
+              label="Password"
+              value={password}
+              secureTextEntry
+              onChangeText={text => setPassword(text)}
+              dense
+            />
+          )}
 
-          <Button
-            mode="contained"
-            onPress={() => console.log("Pressed")}
-            style={styles.submitButton}
-          >
-            Next
-          </Button>
+          {!isUsernameFilled && (
+            <Button
+              mode="contained"
+              onPress={() => setisUsernameFilled(true)}
+              style={styles.submitButton}
+            >
+              Next
+            </Button>
+          )}
+
+          {isUsernameFilled && (
+            <Button
+              mode="contained"
+              onPress={() => console.log("loginn")}
+              style={styles.submitButton}
+            >
+              Login
+            </Button>
+          )}
         </Card.Content>
       </Card>
     </View>

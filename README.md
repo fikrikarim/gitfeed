@@ -52,4 +52,6 @@
 - Even tho yesterday we planned to use OAuth, I think it's more straightforward to use plain username:password authentication for the v1, and see if we can switch to OAuth later if we have time. Hope the username:password authentication doesn't get deprecated during the testing period haha.
 - Well we need a UI library. I'll use react-native-paper again as I had good experience with it, compared to NativeBase.
 - We also need to start thinking about colors and theme. Let's use some color pallete from Refactoring UI.
+- Why do we need to separate the input password into different steps? :(
+- Okay no big deal. Maybe in the future we could validate the username first with the Github API first, before going to the password, like the UX of Tokopedia.
 -
