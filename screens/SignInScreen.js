@@ -46,13 +46,24 @@ const SignInScreen = () => {
           )}
 
           {isUsernameFilled && (
-            <Button
-              mode="contained"
-              onPress={() => console.log("loginn")}
-              style={styles.submitButton}
-            >
-              Login
-            </Button>
+            <>
+              <Button
+                mode="contained"
+                onPress={() => console.log("loginn")}
+                style={styles.submitButton}
+              >
+                Login
+              </Button>
+
+              <Button
+                mode="flat"
+                compact
+                onPress={() => setisUsernameFilled(false)}
+                style={styles.submitButton}
+              >
+                Change username
+              </Button>
+            </>
           )}
         </Card.Content>
       </Card>
