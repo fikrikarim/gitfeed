@@ -1,0 +1,41 @@
+# GitFeed
+
+## Timeline and Thought Process
+
+### Tue, Jan 21
+
+16:07 - 16:53
+
+- Start reading and understanding the interview task
+- Pretty confused with "login screen where user can enter their Github login" and "password screen where user can enter his Github password and a submit button"
+- So do we authenticate the user manually and the user is expected to enter their username and password in our own text field?
+- Check if Github API provides authentication using username and password
+- Hmm yea they do. Okay no problem with the first and second requirement.
+- Finish reading the rest of the interview task. Well I think we can do that.
+
+19:05 - 19:41
+
+- Read the interview task again
+- Check the Github API authentication again. Test using curl.
+- After testing with cURL. Got this warning on email:
+  "You recently used a password to access an endpoint through the GitHub API using curl/7.54.0. We will deprecate basic authentication using password to this endpoint soon:
+  https://api.github.com/
+  We recommend using a personal access token (PAT)"
+- Hmm, yea username and password authentication is not recommended. Normally we do OAuth authentication. Can we use OAuth instead of typing username and password in our app?
+- Other than that, if we use username and password plainly and we save it on localstorage, it's a security problem because hacker can acess the saved username and password. If we use OAuth, then it's not a problem because we save access_token not the whole username and password.
+- Is it fast to implement the OAuth? Do we need a server for the redirect uri? (I've only built OAuth authentication on server rendered apps, Rails)
+- I think Expo provides some OAuth library. Let's check that.
+- Hmm yea Expo provides some abstraction for OAuth. Now let's get started.
+- When starting new React Native application, the first thing we have to decide is whether to use Expo or not.
+- Expo has advantage: lot of abstractions for faster dev time, OTA code update, and easier Android and iOS build
+- Expo disadvantages: big app size! My lastest simple RN app was 22 MB using Expo :(, can't use library that need to change native code.
+- Because for now our app need lot of abstractions, and there's no requirement that needs native code, so we will use expo yay. Anddd expo will provide a navigation structure using react-navigation, so it would be faster to bootstrap our app.
+- Talking about navigation, I prefer react-native-navigation, because it's faster and feels smoother. But for this app I think it's good enough to use react-navigation
+
+19:42 -
+
+- Let's generate our app. But now we have to decide what we should name our app. Hmm so our app shows the git updates of a repo. GitUpdate maybe? No fun. GitFeed? I like it. Let's search on google to see if there's any project with that name
+- Well there's some project but no big one. GitFeed it is!
+- Initiate app using expo.
+- Move our timeline note from simplenote to readme in the expo and do first commit.
+-
