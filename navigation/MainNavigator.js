@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-native";
+import { Button } from "react-native-paper";
 import { createStackNavigator } from "react-navigation-stack";
 
 import { RepoList, RepoDetails } from "../constants/screens";
@@ -14,7 +14,7 @@ const MainNavigator = createStackNavigator(
   },
   {
     defaultNavigationOptions: {
-      headerRight: () => <Button onPress={logout} title="logout" />
+      headerRight: () => <Button onPress={logout}>Logout</Button>
     }
   }
 );
