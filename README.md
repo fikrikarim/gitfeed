@@ -70,3 +70,7 @@
 - Let's do the API call and try to authenticate.
 - We'll use axios, as it's the library I'm most familiar with. We'll use REST instead of GraphQL too because I'm much more familiar with REST, and so far they do the jobs well.
 - Whelp. There's problem on lastest axios version, v0.19.1, when used in [Expo environment](https://github.com/axios/axios/issues/2235). Downgrading to v0.18.0 solves it.
+
+08:02 -
+
+- Implementing the part where the user provides correct credentials

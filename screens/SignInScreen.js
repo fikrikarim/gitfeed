@@ -3,23 +3,27 @@ import { View, StyleSheet } from "react-native";
 import { Card, Text, Button, TextInput } from "react-native-paper";
 
 import { textPrimary, textError } from "../constants/theme";
-import { auth } from "../api";
+import { login } from "../api";
 
-const SignInScreen = () => {
+const SignInScreen = props => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [isUsernameFilled, setisUsernameFilled] = useState(false);
 
   const signIn = async () => {
     setError("");
+    setIsLoading(true);
 
     try {
-      const result = await auth({ username, password });
+      await login({ username, password });
 
-      console.log(result);
+      props.navigation.navigate("Main");
     } catch (error) {
-      setError("Username or password combination doesn't match :(");
+      setError(error);
+
+      setIsLoading(false);
     }
   };
 
@@ -45,6 +49,7 @@ const SignInScreen = () => {
               value={password}
               secureTextEntry
               onChangeText={text => setPassword(text)}
+              disabled={isLoading}
               dense
             />
           )}
@@ -67,6 +72,7 @@ const SignInScreen = () => {
                 mode="contained"
                 onPress={signIn}
                 style={styles.submitButton}
+                disabled={isLoading}
               >
                 Login
               </Button>
