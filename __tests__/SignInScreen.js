@@ -8,8 +8,6 @@ jest.mock("expo", () => ({
   AppLoading: "AppLoading"
 }));
 
-jest.mock("../navigation/AppNavigator", () => "AppNavigator");
-
 describe("SignInScreen", () => {
   jest.useFakeTimers();
 
@@ -17,8 +15,10 @@ describe("SignInScreen", () => {
     NavigationTestUtils.resetInternalState();
   });
 
-  it(`renders the loading screen`, () => {
-    const tree = renderer.create(<SignInScreen />).toJSON();
-    console.log(tree);
+  it(`renders without crashing`, () => {
+    const component = renderer.create(<SignInScreen />);
+    const instance = component.root;
+
+    expect(instance).toBeTruthy();
   });
 });

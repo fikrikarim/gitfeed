@@ -139,6 +139,9 @@ yarn start
 - Creating gifs for README
 - Oh no. No gifs today. Instead, using screenshots :(
 
-15:29 -
+15:29 - 16:00
 
 - Need more time to write good test :(
+- Daaaaym I don't have time to write test. Well, there goes my testing score. Please consider to see [my other project that's fully tested](https://github.com/fikrikarim/hnpopquiz/tree/master/src/__tests__) if it's possible.
+- Or if you want, I could update this project in the future to have more tests.
+- Anyway, I had fun doing this project. Hope for the best, whatever it is ヽ( •\_)ᕗ
