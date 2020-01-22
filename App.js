@@ -8,6 +8,7 @@ import { Provider as PaperProvider } from "react-native-paper";
 
 import { theme } from "./constants/theme";
 import AppNavigator from "./navigation/AppNavigator";
+import NavigationService from "./navigation/NavigationService";
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -25,7 +26,11 @@ export default function App(props) {
       <PaperProvider theme={theme}>
         <View style={styles.container}>
           {Platform.OS === "ios" && <StatusBar barStyle="default" />}
-          <AppNavigator />
+          <AppNavigator
+            ref={navigatorRef => {
+              NavigationService.setTopLevelNavigator(navigatorRef);
+            }}
+          />
         </View>
       </PaperProvider>
     );
