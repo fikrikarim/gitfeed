@@ -98,3 +98,4 @@
 - Searching for the commits API on Github. It looks like the `GET /repos/:owner/:repo/commits` provides everything we need, except for avatar for each user. Is there any easy way to fetch the avatar?
 - Welp, [quick googling](https://stackoverflow.com/questions/22932422) found that you can get the avatar directly by adding `.png` to each user link. For example, to get my avatar you can visit [https://github.com/fikrikarim.png](https://github.com/fikrikarim.png)
 - Dang. I spent 5 minutes debuggin a API problem when fetching `GET /repos/facebook/reactnative/commits` and it returns 404. I thought something is wrong with my authentication, and I have to use OAuth or Github Apps to access the API. It turns out, the repo name should be `react-native` instead of `reactnative`
+- Now we complete all the requirements. Just need to do the pagination

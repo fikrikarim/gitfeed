@@ -6,13 +6,19 @@ import { getCommits } from "../api";
 const RepoDetailsScreen = props => {
   const repository = props.navigation.getParam("repository");
   const [commits, setCommits] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const fetchData = async () => {
+    setIsLoading(true);
+
+    const response = await getCommits({ repository });
+
+    setCommits(response);
+    setIsLoading(false);
+  };
 
   useEffect(() => {
-    (async function() {
-      const response = await getCommits({ repository });
-
-      setCommits(response);
-    })();
+    fetchData();
   }, []);
 
   const Commit = ({ item }) => {
@@ -38,9 +44,8 @@ const RepoDetailsScreen = props => {
         data={commits}
         renderItem={({ item }) => <Commit item={item} />}
         keyExtractor={item => item.sha}
-        // onRefresh={fetchData}
-        // refreshing={loading}
-        // ListFooterComponent={<Footer />}
+        onRefresh={fetchData}
+        refreshing={isLoading}
         // onEndReached={fetchMore}
       />
     </View>

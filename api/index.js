@@ -25,7 +25,6 @@ export const login = async ({ username, password }) => {
       throw "Username and password combination doesn't match :(";
     }
 
-    // console.log("error.message");
     throw error.message;
   }
 };
@@ -41,7 +40,10 @@ export const getCommits = async ({ repository }) => {
 
     return response.data;
   } catch (error) {
-    console.log(error.message);
+    if (error.response.status === 404) {
+      throw "Repository not found";
+    }
+
     throw error.message;
   }
 };
