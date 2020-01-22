@@ -1,5 +1,9 @@
 # GitFeed
 
+## Additional improvements:
+
+- Saved credentials on localstorage. No need to sign in after restating the app.
+
 ## Nice-to-have improvements:
 
 - Use OAuth instead of username:password auth.

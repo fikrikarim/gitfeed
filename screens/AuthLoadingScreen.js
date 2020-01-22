@@ -1,15 +1,23 @@
 import React, { useEffect } from "react";
-import { StyleSheet, View, ActivityIndicator } from "react-native";
+import {
+  StyleSheet,
+  View,
+  ActivityIndicator,
+  AsyncStorage
+} from "react-native";
+import { auth as authKey } from "../constants/storage";
 
 const AuthLoadingScreen = props => {
   useEffect(() => {
-    setTimeout(() => {
-      if (false) {
+    (async function() {
+      credential = await AsyncStorage.getItem(authKey);
+
+      if (credential) {
         props.navigation.navigate("Main");
       } else {
         props.navigation.navigate("SignIn");
       }
-    }, 1000);
+    })();
   });
 
   return (
