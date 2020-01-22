@@ -1,15 +1,47 @@
 # GitFeed
 
-## Additional improvements:
+![android](./assets/screenshots/android.png)
+![ios](./assets/screenshots/ios.png)
 
-- Saved credentials on localstorage. No need to sign in after restating the app.
+## Installation
 
-## Nice-to-have improvements:
+This app use standard expo installation.
 
-- Use OAuth instead of username:password auth.
+Clone the repository
+Install expo-cli if not available
+
+```
+npm install -g expo-cli
+```
+
+Install dependencies and start
+
+```
+cd gitfeed
+
+yarn install
+yarn start
+```
+
+## Additional improvements
+
+- Saved credentials on localstorage. No need to sign in after restarting the app.
+
+## Nice-to-have improvements
+
+- Use OAuth instead of username:password auth. Need a server to save the client_secret.
 - Animation during login prosess
 - Shows onboarding, instead of login form directly.
 - Pagination on the commit list, by setting initial `commitSince` and `commitUntil`, and increase it when we reach the end of the list. For example, in the beginning `commitSince = now` and `commitUntil = now - 1 week`. Then when we reach the end of the list, we fetch for `commitSince = now - 1 week`, and `commitUntil = now - 2 week`, and append the data to the list.
+- Add splash screen and icon.
+
+## Potential business case
+
+- Give curated feed of the subscribed and popular repositories
+- Real time notifications for issues, pull request, or even a star
+- Charge monthly subscription or one time purchase.
+- Well, Github is building their own [official apps](https://github.com/mobile), so we're going against the tide here.
+- One thing, we can integrate with Bitbucket and Gitlab. So GitFeed become the one true app to get latest updates on any repositories across different platforms.
 
 ## Timeline and Thought Process
 
@@ -42,6 +74,7 @@
 - Expo disadvantages: big app size! My lastest simple RN app was 22 MB using Expo :(, can't use library that need to change native code.
 - Because for now our app need lot of abstractions, and there's no requirement that needs native code, so we will use expo yay. Anddd expo will provide a navigation structure using react-navigation, so it would be faster to bootstrap our app.
 - Talking about navigation, I prefer react-native-navigation, because it's faster and feels smoother. But for this app I think it's good enough to use react-navigation
+- Why no redux? Because this app doesn't need global state, and redux would only create another not really useful abstraction.
 
 19:42 - 20:26
 
@@ -101,4 +134,7 @@
 - Now we complete all the requirements. Just need to do the pagination
 - Whelp the pagination would be much easier if they use a number, instead of time. Now if we want to do it we need to install moment for managing time. But there's only 1.5 hours left, and we haven't done the test yet.
 
-14:33 -
+14:37 - 15:29
+
+- Creating gifs for README
+- Oh no. No gifs today. Instead, using screenshots :(
