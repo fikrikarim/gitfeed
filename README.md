@@ -138,3 +138,7 @@ yarn start
 
 - Creating gifs for README
 - Oh no. No gifs today. Instead, using screenshots :(
+
+15:29 -
+
+- Need more time to write good test :(
