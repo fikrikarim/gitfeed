@@ -4,6 +4,7 @@ import { Card, Text, Button, TextInput } from "react-native-paper";
 
 import { textPrimary, textError } from "../constants/theme";
 import { login } from "../api";
+import { Main } from "../constants/screens";
 
 const SignInScreen = props => {
   const [username, setUsername] = useState("");
@@ -19,7 +20,7 @@ const SignInScreen = props => {
     try {
       await login({ username, password });
 
-      props.navigation.navigate("Main");
+      props.navigation.navigate(Main);
     } catch (error) {
       setError(error);
 
@@ -94,7 +95,7 @@ const SignInScreen = props => {
 };
 
 SignInScreen.navigationOptions = {
-  title: "SignInScreen"
+  title: "Sign In"
 };
 
 const styles = StyleSheet.create({
