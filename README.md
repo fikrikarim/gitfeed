@@ -77,10 +77,15 @@
 
 08:02 - 08:47
 
-- Implementing the part where the user provides correct credentials
-- Adding layout of MainNavigator, RepoListScreen, and RepoDetailsScreen
+- Implement the part where the user provides correct credentials
+- Add layout of MainNavigator, RepoListScreen, and RepoDetailsScreen
 
 09:19 - 09:58
 
 - Want to continue to finish RepoListScreen and RepoDetailsScreen, but it's PITA if I have to login everytime I refresh the app. So we'll try to save our credential to localStorage, so the user don't need to login whenever they open the app. If the user click the logout, we'll clear the credential from the localStorage, and the user have to login again.
 - Add NavigationService to navigate from outside screen or components.
+
+12:03 -
+
+- Start doing the RepoListScreen and RepoDetailsScreen
+- There's searchbar component on react-native-paper. But, I don't really like to place the search button on the left?

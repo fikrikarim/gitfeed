@@ -9,9 +9,9 @@ const RepoDetailsScreen = () => {
   );
 };
 
-RepoDetailsScreen.navigationOptions = {
-  title: "Particular Repository"
-};
+RepoDetailsScreen.navigationOptions = props => ({
+  title: props.navigation.getParam("repository")
+});
 
 const styles = StyleSheet.create({
   container: {

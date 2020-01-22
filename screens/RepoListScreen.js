@@ -1,17 +1,24 @@
-import React from "react";
-import { ScrollView, StyleSheet, Text, Button } from "react-native";
+import React, { useState } from "react";
+import { View, StyleSheet } from "react-native";
+import { Searchbar } from "react-native-paper";
 import { RepoDetails } from "../constants/screens";
 
 const RepoListScreen = props => {
-  return (
-    <ScrollView style={styles.container}>
-      <Text>RepoListScreen</Text>
+  const [repository, setRepository] = useState("facebook/reactnative");
 
-      <Button
-        onPress={() => props.navigation.navigate(RepoDetails)}
-        title="Repo Details"
-      ></Button>
-    </ScrollView>
+  const searchRepo = () => {
+    props.navigation.navigate(RepoDetails, { repository });
+  };
+
+  return (
+    <View style={styles.container}>
+      <Searchbar
+        placeholder="user/repository"
+        onChangeText={text => setRepository(text)}
+        onIconPress={searchRepo}
+        value={repository}
+      />
+    </View>
   );
 };
 
@@ -22,8 +29,12 @@ RepoListScreen.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 15,
+    padding: 15,
     backgroundColor: "#fff"
+  },
+  input: {
+    backgroundColor: "transparent",
+    paddingHorizontal: 0
   }
 });
 
