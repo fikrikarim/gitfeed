@@ -1,11 +1,14 @@
-import React from "react";
-import { ScrollView, StyleSheet, Text } from "react-native";
+import React, { useState } from "react";
+import { View, StyleSheet } from "react-native";
+import { Text } from "react-native-paper";
 
-const RepoDetailsScreen = () => {
+const RepoDetailsScreen = props => {
+  const repository = props.navigation.getParam("repository");
+
   return (
-    <ScrollView style={styles.container}>
-      <Text>RepoDetailsScreen</Text>
-    </ScrollView>
+    <View style={styles.container}>
+      <Text>{repository}</Text>
+    </View>
   );
 };
 
@@ -16,8 +19,12 @@ RepoDetailsScreen.navigationOptions = props => ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 15,
+    padding: 15,
     backgroundColor: "#fff"
+  },
+  input: {
+    backgroundColor: "transparent",
+    paddingHorizontal: 0
   }
 });
 

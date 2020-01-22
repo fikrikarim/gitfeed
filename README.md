@@ -85,7 +85,10 @@
 - Want to continue to finish RepoListScreen and RepoDetailsScreen, but it's PITA if I have to login everytime I refresh the app. So we'll try to save our credential to localStorage, so the user don't need to login whenever they open the app. If the user click the logout, we'll clear the credential from the localStorage, and the user have to login again.
 - Add NavigationService to navigate from outside screen or components.
 
-12:03 -
+12:03 - 12:33
 
 - Start doing the RepoListScreen and RepoDetailsScreen
 - There's searchbar component on react-native-paper. But, I don't really like to place the search button on the left?
+- Seems unintuitive if we provide the default value `facebook/reactnative` as the user don't know what to do with the search button? ? What if we instead use a placeholder on the searchbar like "Try facebook/reactnative"?
+- Other thing is we can place another button below the search bar. Yea I think it's better as we don't change the requirement.
+- Why do we need to separate the Repo details screen and the repo search screen? Usually the searchbar is above the search result..?

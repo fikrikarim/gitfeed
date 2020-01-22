@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
-import { Searchbar } from "react-native-paper";
+import { Searchbar, Button } from "react-native-paper";
 import { RepoDetails } from "../constants/screens";
 
 const RepoListScreen = props => {
@@ -18,6 +18,15 @@ const RepoListScreen = props => {
         onIconPress={searchRepo}
         value={repository}
       />
+      <View>
+        <Button
+          style={styles.searchButton}
+          mode="contained"
+          onPress={() => setRepository(repository)}
+        >
+          Search Repository
+        </Button>
+      </View>
     </View>
   );
 };
@@ -32,9 +41,8 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: "#fff"
   },
-  input: {
-    backgroundColor: "transparent",
-    paddingHorizontal: 0
+  searchButton: {
+    marginTop: 10
   }
 });
 
