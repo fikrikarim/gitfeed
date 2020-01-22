@@ -1,5 +1,6 @@
 # GitFeed
 
+![screen_cap](./assets/screenshots/screen_cap.gif)
 ![android](./assets/screenshots/android.png)
 ![ios](./assets/screenshots/ios.png)
 
