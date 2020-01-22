@@ -7,13 +7,19 @@ const RepoDetailsScreen = props => {
   const repository = props.navigation.getParam("repository");
   const [commits, setCommits] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const fetchData = async () => {
     setIsLoading(true);
 
-    const response = await getCommits({ repository });
+    try {
+      const response = await getCommits({ repository });
 
-    setCommits(response);
+      setCommits(response);
+    } catch (error) {
+      setError(error);
+    }
+
     setIsLoading(false);
   };
 
@@ -40,14 +46,18 @@ const RepoDetailsScreen = props => {
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={commits}
-        renderItem={({ item }) => <Commit item={item} />}
-        keyExtractor={item => item.sha}
-        onRefresh={fetchData}
-        refreshing={isLoading}
-        // onEndReached={fetchMore}
-      />
+      {error ? (
+        <Text>{error}</Text>
+      ) : (
+        <FlatList
+          data={commits}
+          renderItem={({ item }) => <Commit item={item} />}
+          keyExtractor={item => item.sha}
+          onRefresh={fetchData}
+          refreshing={isLoading}
+          // onEndReached={fetchMore}
+        />
+      )}
     </View>
   );
 };

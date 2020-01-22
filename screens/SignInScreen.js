@@ -22,7 +22,7 @@ const SignInScreen = props => {
 
       props.navigation.navigate(Main);
     } catch (error) {
-      setError(error.message);
+      setError(error);
 
       setIsLoading(false);
     }
