@@ -30,6 +30,22 @@ export const login = async ({ username, password }) => {
   }
 };
 
+export const getCommits = async ({ repository }) => {
+  try {
+    const [owner, repo] = repository.split("/");
+
+    const response = await api({
+      url: `/repos/${owner}/${repo}/commits`,
+      method: "GET"
+    });
+
+    return response.data;
+  } catch (error) {
+    console.log(error.message);
+    throw error.message;
+  }
+};
+
 export const logout = async () => {
   try {
     await AsyncStorage.removeItem(authKey);

@@ -53,7 +53,6 @@
 - First, let's do the switch navigator that checks whether the user is authenticated or not, if not, then redirects user to Sign in page. And while the app is checking, shows loading spinner.
 - Let's use hook instead of Class. Because, why not. It's a new project after all.
 - Now we make LoginScreen, and MainScreen, and try to make AuthLoadingScreen randomly go to either login screen, before we implement the real logged in checking mechanism, to get sense of the AuthLoadingScreen.
-- Let's take a breakkk to meet someone.
 
 ### Wed, Jan 22
 
@@ -92,3 +91,10 @@
 - Seems unintuitive if we provide the default value `facebook/reactnative` as the user don't know what to do with the search button? ? What if we instead use a placeholder on the searchbar like "Try facebook/reactnative"?
 - Other thing is we can place another button below the search bar. Yea I think it's better as we don't change the requirement.
 - Why do we need to separate the Repo details screen and the repo search screen? Usually the searchbar is above the search result..?
+
+13:19 -
+
+- Completing the RepoDetailsScreen
+- Searching for the commits API on Github. It looks like the `GET /repos/:owner/:repo/commits` provides everything we need, except for avatar for each user. Is there any easy way to fetch the avatar?
+- Welp, [quick googling](https://stackoverflow.com/questions/22932422) found that you can get the avatar directly by adding `.png` to each user link. For example, to get my avatar you can visit [https://github.com/fikrikarim.png](https://github.com/fikrikarim.png)
+- Dang. I spent 5 minutes debuggin a API problem when fetching `GET /repos/facebook/reactnative/commits` and it returns 404. I thought something is wrong with my authentication, and I have to use OAuth or Github Apps to access the API. It turns out, the repo name should be `react-native` instead of `reactnative`

@@ -18,7 +18,7 @@ const AuthLoadingScreen = props => {
         props.navigation.navigate("SignIn");
       }
     })();
-  });
+  }, []);
 
   return (
     <View style={styles.container}>

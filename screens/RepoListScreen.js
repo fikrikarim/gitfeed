@@ -4,7 +4,7 @@ import { Searchbar, Button } from "react-native-paper";
 import { RepoDetails } from "../constants/screens";
 
 const RepoListScreen = props => {
-  const [repository, setRepository] = useState("facebook/reactnative");
+  const [repository, setRepository] = useState("facebook/react-native");
 
   const searchRepo = () => {
     props.navigation.navigate(RepoDetails, { repository });
@@ -22,7 +22,7 @@ const RepoListScreen = props => {
         <Button
           style={styles.searchButton}
           mode="contained"
-          onPress={() => setRepository(repository)}
+          onPress={searchRepo}
         >
           Search Repository
         </Button>
@@ -32,7 +32,7 @@ const RepoListScreen = props => {
 };
 
 RepoListScreen.navigationOptions = {
-  title: "Browse any repository"
+  title: "Explore repositories"
 };
 
 const styles = StyleSheet.create({
