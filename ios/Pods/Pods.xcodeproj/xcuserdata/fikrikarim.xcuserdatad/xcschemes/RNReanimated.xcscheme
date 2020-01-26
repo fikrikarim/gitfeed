@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3A6E7062BB64BA99479C3D0F27078DD8"
+               BlueprintIdentifier = "4654A032AEE7DD3F51DF9E1C25D25384"
                BuildableName = "libRNReanimated.a"
                BlueprintName = "RNReanimated"
                ReferencedContainer = "container:Pods.xcodeproj">
