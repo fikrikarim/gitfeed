@@ -22,7 +22,7 @@ const SignInScreen = props => {
 
       props.navigation.navigate(Main);
     } catch (error) {
-      setError(error);
+      setError(error.message);
 
       setIsLoading(false);
     }
@@ -73,6 +73,7 @@ const SignInScreen = props => {
           {isUsernameFilled && (
             <>
               <Button
+                testID={"loginButton"}
                 mode="contained"
                 onPress={signIn}
                 style={styles.submitButton}

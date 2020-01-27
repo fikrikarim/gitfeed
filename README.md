@@ -35,6 +35,7 @@ yarn start
 - Shows onboarding, instead of login form directly.
 - Pagination on the commit list, by setting initial `commitSince` and `commitUntil`, and increase it when we reach the end of the list. For example, in the beginning `commitSince = now` and `commitUntil = now - 1 week`. Then when we reach the end of the list, we fetch for `commitSince = now - 1 week`, and `commitUntil = now - 2 week`, and append the data to the list.
 - Add splash screen and icon.
+- Mock the GitHub API for e2e tests.
 
 ## Potential business case
 

@@ -21,11 +21,11 @@ export const login = async ({ username, password }) => {
     // Set default auth for future API calls
     api.defaults.auth = { username, password };
   } catch (error) {
-    if (error.response.status === 401) {
-      throw "Username and password combination doesn't match :(";
+    if (error.response && error.response.status === 401) {
+      throw new Error("Username and password combination doesn't match :(");
     }
 
-    throw error.message;
+    throw error;
   }
 };
 
@@ -40,11 +40,11 @@ export const getCommits = async ({ repository }) => {
 
     return response.data;
   } catch (error) {
-    if (error.response.status === 404) {
-      throw "Repository not found";
+    if (error.response && error.response.status === 404) {
+      throw new Error("Repository not found");
     }
 
-    throw error.message;
+    throw error;
   }
 };
 

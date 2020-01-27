@@ -17,7 +17,7 @@ const RepoDetailsScreen = props => {
 
       setCommits(response);
     } catch (error) {
-      setError(error);
+      setError(error.message);
     }
 
     setIsLoading(false);
