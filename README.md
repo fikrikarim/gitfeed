@@ -6,23 +6,53 @@
 
 ## Installation
 
-This app use standard expo installation.
+This app use standard react-native instalation.
 
-Clone the repository
-Install expo-cli if not available
+Follow the [official guide by the react-native team](https://facebook.github.io/react-native/docs/getting-started)
+
+Select the React Native CLI Quickstart
+
+## Testing
+
+End-to-end testing:
+
+![e2e_testing](./assets/screenshots/e2e_testing.gif)
+
+[Follow guide by detox for running and installation](https://github.com/wix/Detox/blob/master/docs/Introduction.GettingStarted.md)
+
+Right now the End-to-end testing is only enabled for iOS.
+
+## Troubleshoot
+
+If there's trouble after installing cocoapods, and cannot run on ios:
+
+Remove input files and output paths on project.pbxproj
+
+So it became similar to
 
 ```
-npm install -g expo-cli
+75944360D524846EA61F4FF8 /* [CP] Copy Pods Resources */ = {
+  isa = PBXShellScriptBuildPhase;
+  buildActionMask = 2147483647;
+  files = (
+  );
+  inputFileListPaths = (
+  );
+  inputPaths = (
+  );
+  name = "[CP] Copy Pods Resources";
+  outputFileListPaths = (
+  );
+  outputPaths = (
+  );
+  runOnlyForDeploymentPostprocessing = 0;
+  shellPath = /bin/sh;
+  shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GitFeed/Pods-GitFeed-resources.sh\"\n";
+  showEnvVarsInLog = 0;
+};
 ```
 
-Install dependencies and start
-
-```
-cd gitfeed
-
-yarn install
-yarn start
-```
+This is an ongoing issue with [React-native because of Xcode new build system](https://github.com/facebook/react-native/issues/20492)
 
 ## Additional improvements
 
@@ -35,6 +65,7 @@ yarn start
 - Shows onboarding, instead of login form directly.
 - Pagination on the commit list, by setting initial `commitSince` and `commitUntil`, and increase it when we reach the end of the list. For example, in the beginning `commitSince = now` and `commitUntil = now - 1 week`. Then when we reach the end of the list, we fetch for `commitSince = now - 1 week`, and `commitUntil = now - 2 week`, and append the data to the list.
 - Add splash screen and icon.
+- Mock the GitHub API for e2e tests.
 
 ## Potential business case
 

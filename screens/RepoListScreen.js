@@ -13,6 +13,7 @@ const RepoListScreen = props => {
   return (
     <View style={styles.container}>
       <Searchbar
+        testID="searchBar"
         placeholder="user/repository"
         onChangeText={text => setRepository(text)}
         onIconPress={searchRepo}
@@ -20,6 +21,7 @@ const RepoListScreen = props => {
       />
       <View>
         <Button
+          testID="searchButton"
           style={styles.searchButton}
           mode="contained"
           onPress={searchRepo}

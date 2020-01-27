@@ -4,10 +4,6 @@ import renderer from "react-test-renderer";
 
 import SignInScreen from "../screens/SignInScreen";
 
-jest.mock("expo", () => ({
-  AppLoading: "AppLoading"
-}));
-
 describe("SignInScreen", () => {
   jest.useFakeTimers();
 

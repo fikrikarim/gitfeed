@@ -14,7 +14,11 @@ const MainNavigator = createStackNavigator(
   },
   {
     defaultNavigationOptions: {
-      headerRight: () => <Button onPress={logout}>Logout</Button>
+      headerRight: () => (
+        <Button onPress={logout} testID="logoutButton">
+          Logout
+        </Button>
+      )
     }
   }
 );
