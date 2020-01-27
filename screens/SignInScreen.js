@@ -35,6 +35,7 @@ const SignInScreen = props => {
           <Text style={styles.title}>Login via Github</Text>
 
           <TextInput
+            testID={"githubUsername"}
             style={styles.input}
             label="Github username"
             value={username}
@@ -45,6 +46,7 @@ const SignInScreen = props => {
 
           {isUsernameFilled && (
             <TextInput
+              testID={"githubPassword"}
               style={styles.input}
               label="Password"
               value={password}
@@ -57,6 +59,7 @@ const SignInScreen = props => {
 
           {!isUsernameFilled && (
             <Button
+              testID={"nextButton"}
               mode="contained"
               onPress={() => setisUsernameFilled(true)}
               style={styles.submitButton}
