@@ -1,5 +1,5 @@
 import api from "./base";
-import { AsyncStorage } from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
 
 import { auth as authKey } from "../constants/storage";
 import { Auth as AuthScreen } from "../constants/screens";

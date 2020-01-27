@@ -50,6 +50,7 @@ const RepoDetailsScreen = props => {
         <Text>{error}</Text>
       ) : (
         <FlatList
+          testID="commitList"
           data={commits}
           renderItem={({ item }) => <Commit item={item} />}
           keyExtractor={item => item.sha}

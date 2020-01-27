@@ -6,9 +6,10 @@
     "test": "jest --watchAll"
   },
   "jest": {
-    "preset": "jest"
+    "preset": "react-native"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.7.1",
     "axios": "0.18.0",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
